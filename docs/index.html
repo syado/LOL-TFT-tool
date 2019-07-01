@@ -7,24 +7,13 @@
     }
     const { ipcRenderer } = require("electron")
     $(() => {
-        // $("#item_recipe").on({
-        //     mouseenter: () => { $("#recipe").css({'display':'block'}) },
-        //     mouseleave: () => { $("#recipe").css({'display':'none'}) },
-        // });
-        // $("#recipe").on({
-        //     mouseenter: () => { $("#recipe").css({'display':'block'}) },
-        //     mouseleave: () => { $("#recipe").css({'display':'none'}) },
-        // });
-        // $('.item').on({
-        //     mouseenter: () => { ipcRenderer.send('resize', 480, 480); },
-        //     mouseleave: () => { ipcRenderer.send('resize', 480, 120); }
-        // });
         $("#item_recipe").on("click", function () {
             var _click = $(this).data("click");
             if (_click == "close") {
                 ipcRenderer.send('resize', 500, 378);
                 $(this).data("click", "open");
                 $("#recipe").css({ 'display': 'block' });
+                recipe_img_change("BF");
             } else {
                 ipcRenderer.send('resize', 84, 42);
                 $(this).data("click", "close");
@@ -34,7 +23,7 @@
     });
     var recipe_list = {
         "BF": [
-            ["BF","infinity_edge","クリティカルダメージ+100%"],
+            ["BF","infinity_edge","クリティカルダメージ+100%", ],
             ["Rod","hextech_gunblade","与えたダメージの25%を回復する"],
             ["Bow","sword_of_the_divine","毎秒5%の確率でクリティカル率が100%"],
             ["Tear","spear_of_shojin","通常攻撃で+15%のマナを回復する"],
@@ -114,11 +103,22 @@
             ["Spatula","force_of_nature","チームサイズを1追加する"],
         ],
     }
+    var item_status = {
+        "BF":'<font color="OrangeRed">攻撃力 +20　</font>',
+        "Rod":'<font color="Magenta">スキルダメージ +20%　</font>',
+        "Bow":'<font color="Yellow">攻撃速度 +15%　</font>',
+        "Tear":'<font color="aqua">マナ +20　</font>',
+        "Vest":'<font color="Orange">防御力 +20　</font>',
+        "Cape":'<font color="mediumslateblue">魔法防御 +20　</font>',
+        "Belt":'<font color="Lime">HP +200　</font>',
+        "Spatula":"",
+    }
     function recipe_img_change(id) {
         $('[id=recipe_img]').attr("src", "Images/item/" + id + ".png");
         for(let v of recipe_list[id]) {
             $("#"+v[0]+".completed.item").attr("src", "Images/item/" + v[1] + ".png");
-            $("#"+v[0]+".completed.text").text(v[2]);
+            $("#"+v[0]+".completed-bottom.text").html(v[2]);
+            $("#"+v[0]+".completed-top.text").html(item_status[v[0]]+item_status[id]);
             console.log(v[0], v[1], v[2]);
         }
     }
@@ -143,7 +143,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/infinity_edge.png" id="BF" class="item completed">
-            <span id="BF" class="text completed">クリティカルダメージ+100%</span>
+            <span id="BF" class="text completed completed-top">クリティカルダメージ+100%</span>
+            <span id="BF" class="text completed completed-bottom">クリティカルダメージ+100%</span>
         </div>
         <div>
             <img src="Images/item/Rod.png" id="Rod" class="item" onclick="recipe_img_change(this.id)">
@@ -151,7 +152,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/hextech_gunblade.png" id="Rod" class="item completed">
-            <span id="Rod" class="text completed">与えたダメージの25%を回復する</span>
+            <span id="Rod" class="text completed completed-top">与えたダメージの25%を回復する</span>
+            <span id="Rod" class="text completed completed-bottom">与えたダメージの25%を回復する</span>
         </div>
         <div>
             <img src="Images/item/Bow.png" id="Bow" class="item" onclick="recipe_img_change(this.id)">
@@ -159,7 +161,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/sword_of_the_divine.png" id="Bow" class="item completed">
-            <span id="Bow" class="text completed">毎秒5%の確率でクリティカル率が100%</span>
+            <span id="Bow" class="text completed completed-top">毎秒5%の確率でクリティカル率が100%</span>
+            <span id="Bow" class="text completed completed-bottom">毎秒5%の確率でクリティカル率が100%</span>
         </div>
         <div>
             <img src="Images/item/Tear.png" id="Tear" class="item" onclick="recipe_img_change(this.id)">
@@ -167,7 +170,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/spear_of_shojin.png" id="Tear" class="item completed">
-            <span id="Tear" class="text completed">通常攻撃で+15%のマナを回復する</span>
+            <span id="Tear" class="text completed completed-top">通常攻撃で+15%のマナを回復する</span>
+            <span id="Tear" class="text completed completed-bottom">通常攻撃で+15%のマナを回復する</span>
         </div>
         <div>
             <img src="Images/item/Vest.png" id="Vest" class="item" onclick="recipe_img_change(this.id)">
@@ -175,7 +179,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/guardian_angel.png" id="Vest" class="item completed">
-            <span id="Vest" class="text completed">倒されたチャンピオンはHP500で1度だけ復活する</span>
+            <span id="Vest" class="text completed completed-top">倒されたチャンピオンはHP500で1度だけ復活する</span>
+            <span id="Vest" class="text completed completed-bottom">倒されたチャンピオンはHP500で1度だけ復活する</span>
         </div>
         <div>
             <img src="Images/item/Cape.png" id="Cape" class="item" onclick="recipe_img_change(this.id)">
@@ -183,7 +188,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/bloodthirster.png" id="Cape" class="item completed">
-            <span id="Cape" class="text completed">通常攻撃ダメージの50%を回復する</span>
+            <span id="Cape" class="text completed completed-top">通常攻撃ダメージの50%を回復する</span>
+            <span id="Cape" class="text completed completed-bottom">通常攻撃ダメージの50%を回復する</span>
         </div>
         <div>
             <img src="Images/item/Belt.png" id="Belt" class="item" onclick="recipe_img_change(this.id)">
@@ -191,7 +197,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/zekes_herald.png" id="Belt" class="item completed">
-            <span id="Belt" class="text completed">	周囲のチャンピオンの攻撃速度+10%</span>
+            <span id="Belt" class="text completed completed-top">	周囲のチャンピオンの攻撃速度+10%</span>
+            <span id="Belt" class="text completed completed-bottom">	周囲のチャンピオンの攻撃速度+10%</span>
         </div>
         <div>
             <img src="Images/item/Spatula.png" id="Spatula" class="item" onclick="recipe_img_change(this.id)">
@@ -199,7 +206,8 @@
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/youmuus_ghostblade.png" id="Spatula" class="item completed">
-            <span id="Spatula" class="text completed">アサシンを付与する</span>
+            <span id="Spatula" class="text completed completed-top">アサシンを付与する</span>
+            <span id="Spatula" class="text completed completed-bottom">アサシンを付与する</span>
         </div>
     </div>
 </body>
@@ -213,9 +221,6 @@
         margin: 0;
         font-size: 0%;
         background: rgba(0, 0, 0, 0.3);
-    }
-
-    #bar {
         -webkit-app-region: drag;
     }
 
@@ -240,5 +245,20 @@
         vertical-align: middle;
         line-height: 42px;
         margin: 1.9px;
+    }
+    .completed-top{
+        font-size: 12px !important;
+        line-height: 21px;
+        margin-top: 0;
+        margin-bottom: 0;
+        position: absolute;
+    }
+    .completed-bottom{
+        font-size: 12px !important;
+        line-height: 21px;
+        margin-top: 0;
+        margin-bottom: 0;
+        position: absolute;
+        padding-top: 21px;
     }
 </style>

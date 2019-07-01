@@ -12,8 +12,8 @@ app.on("ready", () => {
     fullscreenable: false,
     fullscreen: false,
   })
-  // win.loadURL(`file://${__dirname}/docs/index.html`);
-  win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
+  win.loadURL(`file://${__dirname}/docs/index.html`);
+  // win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
   win.setAlwaysOnTop(true);
   win.setIgnoreMouseEvents(false);
   ipcMain.on('resize', (e, x, y) => {
