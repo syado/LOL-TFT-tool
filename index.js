@@ -16,8 +16,11 @@ app.on("ready", () => {
   win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
   win.setAlwaysOnTop(true);
   win.setIgnoreMouseEvents(false);
-  win.on('closed', () => { win = null; })
   ipcMain.on('resize', (e, x, y) => {
     win.setSize(x, y)
+  })
+  win.on('closed', () => {
+    win = null; 
+    app.quit();
   })
 })
