@@ -4,7 +4,7 @@ var path = require('path')
 
 app.on("ready", () => {
   let win = new BrowserWindow({
-    width: 84,
+    width: 42,
     height: 42,
     transparent: true,
     frame: false,
@@ -12,8 +12,8 @@ app.on("ready", () => {
     fullscreenable: false,
     fullscreen: false,
   })
-  win.loadURL(`file://${__dirname}/docs/index.html`);
-  // win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
+  // win.loadURL(`file://${__dirname}/docs/index.html`);
+  win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
   win.setAlwaysOnTop(true);
   win.setIgnoreMouseEvents(false);
   ipcMain.on('resize', (e, x, y) => {

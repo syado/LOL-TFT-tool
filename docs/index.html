@@ -6,119 +6,140 @@
         module.exports = {};
     }
     const { ipcRenderer } = require("electron")
+    ipcRenderer.send('resize', 98, 42);
     $(() => {
         $("#item_recipe").on("click", function () {
             var _click = $(this).data("click");
             if (_click == "close") {
                 ipcRenderer.send('resize', 500, 378);
                 $(this).data("click", "open");
+                $("#drop").css({ 'display': 'none' });
                 $("#recipe").css({ 'display': 'block' });
+                $("#champion_drop").data("click", "close");
+                $("#drag").css({ 'display': 'none' });
                 recipe_img_change("BF");
             } else {
-                ipcRenderer.send('resize', 84, 42);
+                ipcRenderer.send('resize', 98, 42);
                 $(this).data("click", "close");
                 $("#recipe").css({ 'display': 'none' });
+                $("#drag").css({ 'display': '-webkit-inline-box' });
+            }
+        });
+        $("#champion_drop").on("click", function () {
+            var _click = $(this).data("click");
+            if (_click == "close") {
+                ipcRenderer.send('resize', 340, 242);
+                $(this).data("click", "open");
+                $("#drop").css({ 'display': 'block' });
+                $("#recipe").css({ 'display': 'none' });
+                $("#item_recipe").data("click", "close");
+                $("#drag").css({ 'display': 'none' });
+            } else {
+                ipcRenderer.send('resize', 98, 42);
+                $(this).data("click", "close");
+                $("#drop").css({ 'display': 'none' });
+                $("#drag").css({ 'display': '-webkit-inline-box' });
             }
         });
     });
     var recipe_list = {
         "BF": [
-            ["BF","infinity_edge","クリティカルダメージ+100%", ],
-            ["Rod","hextech_gunblade","与えたダメージの25%を回復する"],
-            ["Bow","sword_of_the_divine","毎秒5%の確率でクリティカル率が100%"],
-            ["Tear","spear_of_shojin","通常攻撃で+15%のマナを回復する"],
-            ["Vest","guardian_angel","倒されたチャンピオンはHP500で1度だけ復活する"],
-            ["Cape","bloodthirster","通常攻撃ダメージの50%を回復する"],
-            ["Belt","zekes_herald","周囲のチャンピオンの攻撃速度+10%"],
-            ["Spatula","youmuus_ghostblade","アサシンを付与する"],
+            ["BF", "infinity_edge", "クリティカルダメージ+100%",],
+            ["Rod", "hextech_gunblade", "与えたダメージの25%を回復する"],
+            ["Bow", "sword_of_the_divine", "毎秒5%の確率でクリティカル率が100%"],
+            ["Tear", "spear_of_shojin", "通常攻撃で+15%のマナを回復する"],
+            ["Vest", "guardian_angel", "倒されたチャンピオンはHP500で1度だけ復活する"],
+            ["Cape", "bloodthirster", "通常攻撃ダメージの50%を回復する"],
+            ["Belt", "zekes_herald", "周囲のチャンピオンの攻撃速度+10%"],
+            ["Spatula", "youmuus_ghostblade", "アサシンを付与する"],
         ],
         "Rod": [
-            ["BF","hextech_gunblade","与えたダメージの25%を回復する"],
-            ["Rod","rabadons_deathcap","スキルダメージ+50%"],
-            ["Bow","guinsoos_rageblade","通常攻撃するたびに攻撃速度が3%上昇する(スタック無制限)"],
-            ["Tear","ludens_echo","スキルダメージにより200ダメージを周囲のチャンピオンに与える"],
-            ["Vest","locket_of_the_iron_solari","戦闘開始時、周囲のチャンピオンに200のシールドを付与する"],
-            ["Cape","ionic_spark","スキルを発動した相手は200ダメージを受ける"],
-            ["Belt","morellonomicon","スキルダメージが毎秒相手の最大体力の5%の燃焼ダメージを与える"],
-            ["Spatula","yuumi","ソーサラーを付与する"],
+            ["BF", "hextech_gunblade", "与えたダメージの25%を回復する"],
+            ["Rod", "rabadons_deathcap", "スキルダメージ+50%"],
+            ["Bow", "guinsoos_rageblade", "通常攻撃するたびに攻撃速度が3%上昇する(スタック無制限)"],
+            ["Tear", "ludens_echo", "スキルダメージにより200ダメージを周囲のチャンピオンに与える"],
+            ["Vest", "locket_of_the_iron_solari", "戦闘開始時、周囲のチャンピオンに200のシールドを付与する"],
+            ["Cape", "ionic_spark", "スキルを発動した相手は200ダメージを受ける"],
+            ["Belt", "morellonomicon", "スキルダメージが毎秒相手の最大体力の5%の燃焼ダメージを与える"],
+            ["Spatula", "yuumi", "ソーサラーを付与する"],
         ],
         "Bow": [
-            ["BF","sword_of_the_divine","毎秒5%の確率でクリティカル率が100%"],
-            ["Rod","guinsoos_rageblade","通常攻撃するたびに攻撃速度が3%上昇する(スタック無制限)"],
-            ["Bow","rapid_firecannon","通常攻撃の射程が2倍になり、避けられなくなる"],
-            ["Tear","statikk_shiv","通常攻撃3回ごとに100の範囲ダメージを与える"],
-            ["Vest","phantom_dancer","クリティカルダメージを回避する"],
-            ["Cape","cursed_blade","通常攻撃により低確率で相手チャンピオンのレベルを下げる"],
-            ["Belt","titanic_hydra","通常攻撃が最大体力の10%にあたる範囲ダメージを与える"],
-            ["Spatula","blade_of_the_ruined_king","ブレードマスターを付与する"],
+            ["BF", "sword_of_the_divine", "毎秒5%の確率でクリティカル率が100%"],
+            ["Rod", "guinsoos_rageblade", "通常攻撃するたびに攻撃速度が3%上昇する(スタック無制限)"],
+            ["Bow", "rapid_firecannon", "通常攻撃の射程が2倍になり、避けられなくなる"],
+            ["Tear", "statikk_shiv", "通常攻撃3回ごとに100の範囲ダメージを与える"],
+            ["Vest", "phantom_dancer", "クリティカルダメージを回避する"],
+            ["Cape", "cursed_blade", "通常攻撃により低確率で相手チャンピオンのレベルを下げる"],
+            ["Belt", "titanic_hydra", "通常攻撃が最大体力の10%にあたる範囲ダメージを与える"],
+            ["Spatula", "blade_of_the_ruined_king", "ブレードマスターを付与する"],
         ],
         "Tear": [
-            ["BF","spear_of_shojin","通常攻撃で+15%のマナを回復する"],
-            ["Rod","ludens_echo","スキルダメージにより200ダメージを周囲のチャンピオンに与える"],
-            ["Bow","statikk_shiv","通常攻撃3回ごとに100の範囲ダメージを与える"],
-            ["Tear","seraphs_embrace","スキルを発動するたび最大マナの20%を回復する"],
-            ["Vest","frozen_heart","周囲の敵の攻撃速度を20%低下させる"],
-            ["Cape","hush","通常攻撃により高確率で相手をサイレンスにする"],
-            ["Belt","redemption","倒されたとき、周囲のチャンピオンを1000回復する"],
-            ["Spatula","darkin","デーモンを付与する"],
+            ["BF", "spear_of_shojin", "通常攻撃で+15%のマナを回復する"],
+            ["Rod", "ludens_echo", "スキルダメージにより200ダメージを周囲のチャンピオンに与える"],
+            ["Bow", "statikk_shiv", "通常攻撃3回ごとに100の範囲ダメージを与える"],
+            ["Tear", "seraphs_embrace", "スキルを発動するたび最大マナの20%を回復する"],
+            ["Vest", "frozen_heart", "周囲の敵の攻撃速度を20%低下させる"],
+            ["Cape", "hush", "通常攻撃により高確率で相手をサイレンスにする"],
+            ["Belt", "redemption", "倒されたとき、周囲のチャンピオンを1000回復する"],
+            ["Spatula", "darkin", "デーモンを付与する"],
         ],
         "Vest": [
-            ["BF","guardian_angel","倒されたチャンピオンはHP500で1度だけ復活する"],
-            ["Rod","locket_of_the_iron_solari","戦闘開始時、周囲のチャンピオンに200のシールドを付与する"],
-            ["Bow","phantom_dancer","クリティカルダメージを回避する"],
-            ["Tear","frozen_heart","周囲の敵の攻撃速度を20%低下させる"],
-            ["Vest","thornmail","通常攻撃ダメージを35%反射する"],
-            ["Cape","sword_breaker","通常攻撃により一定確率で装備を解除する"],
-            ["Belt","red_buff","通常攻撃で2.5%の燃焼ダメージを与える"],
-            ["Spatula","knights_vow","ナイトを付与する"],
+            ["BF", "guardian_angel", "倒されたチャンピオンはHP500で1度だけ復活する"],
+            ["Rod", "locket_of_the_iron_solari", "戦闘開始時、周囲のチャンピオンに200のシールドを付与する"],
+            ["Bow", "phantom_dancer", "クリティカルダメージを回避する"],
+            ["Tear", "frozen_heart", "周囲の敵の攻撃速度を20%低下させる"],
+            ["Vest", "thornmail", "通常攻撃ダメージを35%反射する"],
+            ["Cape", "sword_breaker", "通常攻撃により一定確率で装備を解除する"],
+            ["Belt", "red_buff", "通常攻撃で2.5%の燃焼ダメージを与える"],
+            ["Spatula", "knights_vow", "ナイトを付与する"],
         ],
         "Cape": [
-            ["BF","bloodthirster","通常攻撃ダメージの50%を回復する"],
-            ["Rod","ionic_spark","スキルを発動した相手は200ダメージを受ける"],
-            ["Bow","cursed_blade","通常攻撃により低確率で相手チャンピオンのレベルを下げる"],
-            ["Tear","hush","通常攻撃により高確率で相手をサイレンスにする"],
-            ["Vest","sword_breaker","通常攻撃により一定確率で装備を解除する"],
-            ["Cape","dragons_claw","スキルダメージを83%カットする"],
-            ["Belt","zephyr","戦闘開始時、敵1体を5秒間行動不能にする"],
-            ["Spatula","runaans_hurricane","通常攻撃の50%のダメージを追加で2体のチャンピオンに与える"],
+            ["BF", "bloodthirster", "通常攻撃ダメージの50%を回復する"],
+            ["Rod", "ionic_spark", "スキルを発動した相手は200ダメージを受ける"],
+            ["Bow", "cursed_blade", "通常攻撃により低確率で相手チャンピオンのレベルを下げる"],
+            ["Tear", "hush", "通常攻撃により高確率で相手をサイレンスにする"],
+            ["Vest", "sword_breaker", "通常攻撃により一定確率で装備を解除する"],
+            ["Cape", "dragons_claw", "スキルダメージを83%カットする"],
+            ["Belt", "zephyr", "戦闘開始時、敵1体を5秒間行動不能にする"],
+            ["Spatula", "runaans_hurricane", "通常攻撃の50%のダメージを追加で2体のチャンピオンに与える"],
         ],
         "Belt": [
-            ["BF","zekes_herald","周囲のチャンピオンの攻撃速度+10%"],
-            ["Rod","morellonomicon","スキルダメージが毎秒相手の最大体力の5%の燃焼ダメージを与える"],
-            ["Bow","titanic_hydra","通常攻撃が最大体力の10%にあたる範囲ダメージを与える"],
-            ["Tear","redemption","倒されたとき、周囲のチャンピオンを1000回復する"],
-            ["Vest","red_buff","通常攻撃で2.5%の燃焼ダメージを与える"],
-            ["Cape","zephyr","戦闘開始時、敵1体を5秒間行動不能にする"],
-            ["Belt","warmogs_armor","毎秒最大体力の3%を回復する"],
-            ["Spatula","frozen_mallet","グレイシャルを付与する"],
+            ["BF", "zekes_herald", "周囲のチャンピオンの攻撃速度+10%"],
+            ["Rod", "morellonomicon", "スキルダメージが毎秒相手の最大体力の5%の燃焼ダメージを与える"],
+            ["Bow", "titanic_hydra", "通常攻撃が最大体力の10%にあたる範囲ダメージを与える"],
+            ["Tear", "redemption", "倒されたとき、周囲のチャンピオンを1000回復する"],
+            ["Vest", "red_buff", "通常攻撃で2.5%の燃焼ダメージを与える"],
+            ["Cape", "zephyr", "戦闘開始時、敵1体を5秒間行動不能にする"],
+            ["Belt", "warmogs_armor", "毎秒最大体力の3%を回復する"],
+            ["Spatula", "frozen_mallet", "グレイシャルを付与する"],
         ],
         "Spatula": [
-            ["BF","youmuus_ghostblade","アサシンを付与する"],
-            ["Rod","yuumi","ソーサラーを付与する"],
-            ["Bow","blade_of_the_ruined_king","ブレードマスターを付与する"],
-            ["Tear","darkin","デーモンを付与する"],
-            ["Vest","knights_vow","ナイトを付与する"],
-            ["Cape","runaans_hurricane","通常攻撃の50%のダメージを追加で2体のチャンピオンに与える"],
-            ["Belt","frozen_mallet","グレイシャルを付与する"],
-            ["Spatula","force_of_nature","チームサイズを1追加する"],
+            ["BF", "youmuus_ghostblade", "アサシンを付与する"],
+            ["Rod", "yuumi", "ソーサラーを付与する"],
+            ["Bow", "blade_of_the_ruined_king", "ブレードマスターを付与する"],
+            ["Tear", "darkin", "デーモンを付与する"],
+            ["Vest", "knights_vow", "ナイトを付与する"],
+            ["Cape", "runaans_hurricane", "通常攻撃の50%のダメージを追加で2体のチャンピオンに与える"],
+            ["Belt", "frozen_mallet", "グレイシャルを付与する"],
+            ["Spatula", "force_of_nature", "チームサイズを1追加する"],
         ],
     }
     var item_status = {
-        "BF":'<font color="OrangeRed">攻撃力 +20　</font>',
-        "Rod":'<font color="Magenta">スキルダメージ +20%　</font>',
-        "Bow":'<font color="Yellow">攻撃速度 +15%　</font>',
-        "Tear":'<font color="aqua">マナ +20　</font>',
-        "Vest":'<font color="Orange">防御力 +20　</font>',
-        "Cape":'<font color="mediumslateblue">魔法防御 +20　</font>',
-        "Belt":'<font color="Lime">HP +200　</font>',
-        "Spatula":"",
+        "BF": '<font color="OrangeRed">攻撃力 +20　</font>',
+        "Rod": '<font color="Magenta">スキルダメージ +20%　</font>',
+        "Bow": '<font color="Yellow">攻撃速度 +15%　</font>',
+        "Tear": '<font color="aqua">マナ +20　</font>',
+        "Vest": '<font color="Orange">防御力 +20　</font>',
+        "Cape": '<font color="mediumslateblue">魔法防御 +20　</font>',
+        "Belt": '<font color="Lime">HP +200　</font>',
+        "Spatula": "",
     }
     function recipe_img_change(id) {
         $('[id=recipe_img]').attr("src", "Images/item/" + id + ".png");
-        for(let v of recipe_list[id]) {
-            $("#"+v[0]+".completed.item").attr("src", "Images/item/" + v[1] + ".png");
-            $("#"+v[0]+".completed-bottom.text").html(v[2]);
-            $("#"+v[0]+".completed-top.text").html(item_status[v[0]]+item_status[id]);
+        for (let v of recipe_list[id]) {
+            $("#" + v[0] + ".completed.item").attr("src", "Images/item/" + v[1] + ".png");
+            $("#" + v[0] + ".completed-bottom.text").html(v[2]);
+            $("#" + v[0] + ".completed-top.text").html(item_status[v[0]] + item_status[id]);
             console.log(v[0], v[1], v[2]);
         }
     }
@@ -126,9 +147,17 @@
 
 <body>
     <div id="bar">
-        <img src="Images/item/Spatula.png" id="item_recipe" class="item" data-click="close">
-        <!-- <img src="Images/item/Rod.png" id="Rod" class="item">
-        <img src="Images/item/Bow.png" id="Bow" class="item">
+        <img src="Images/item/Spatula.png" id="item_recipe" class="item click" data-click="close">
+        <!-- <img src="Images/item/Rod.png" id="champion_drop" class="item click" data-click="close"> -->
+        <div style="width: 42px; height: 42px; display: -webkit-inline-box;" id="champion_drop" class="item click" data-click="close">
+            <img src="Images/tier/tier2.png" style="width: 21px; height: 21px;">
+            <img src="Images/tier/tier3.png" style="width: 21px; height: 21px;">
+            <img src="Images/tier/tier4.png" style="width: 21px; height: 21px;">
+            <img src="Images/tier/tier5.png" style="width: 21px; height: 21px;">
+        </div>        
+        <div id="drag">
+        </div>
+        <!--<img src="Images/item/Bow.png" id="Bow" class="item">
         <img src="Images/item/Tear.png" id="Tear" class="item">
         <img src="Images/item/Vest.png" id="Vest" class="item">
         <img src="Images/item/Cape.png" id="Cape" class="item">
@@ -136,9 +165,9 @@
         <img src="Images/item/Spatula.png" id="Spatula" class="item">
         <img src="Images/item/Spatula.png" id="Spatula" class="drag item"> -->
     </div>
-    <div id="recipe">
+    <div id="recipe" class="recipe">
         <div>
-            <img src="Images/item/BF.png" id="BF" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/BF.png" id="BF" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -147,7 +176,7 @@
             <span id="BF" class="text completed completed-bottom">クリティカルダメージ+100%</span>
         </div>
         <div>
-            <img src="Images/item/Rod.png" id="Rod" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Rod.png" id="Rod" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -156,7 +185,7 @@
             <span id="Rod" class="text completed completed-bottom">与えたダメージの25%を回復する</span>
         </div>
         <div>
-            <img src="Images/item/Bow.png" id="Bow" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Bow.png" id="Bow" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -165,7 +194,7 @@
             <span id="Bow" class="text completed completed-bottom">毎秒5%の確率でクリティカル率が100%</span>
         </div>
         <div>
-            <img src="Images/item/Tear.png" id="Tear" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Tear.png" id="Tear" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -174,7 +203,7 @@
             <span id="Tear" class="text completed completed-bottom">通常攻撃で+15%のマナを回復する</span>
         </div>
         <div>
-            <img src="Images/item/Vest.png" id="Vest" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Vest.png" id="Vest" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -183,7 +212,7 @@
             <span id="Vest" class="text completed completed-bottom">倒されたチャンピオンはHP500で1度だけ復活する</span>
         </div>
         <div>
-            <img src="Images/item/Cape.png" id="Cape" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Cape.png" id="Cape" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -192,16 +221,16 @@
             <span id="Cape" class="text completed completed-bottom">通常攻撃ダメージの50%を回復する</span>
         </div>
         <div>
-            <img src="Images/item/Belt.png" id="Belt" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Belt.png" id="Belt" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
             <img src="Images/item/zekes_herald.png" id="Belt" class="item completed">
-            <span id="Belt" class="text completed completed-top">	周囲のチャンピオンの攻撃速度+10%</span>
-            <span id="Belt" class="text completed completed-bottom">	周囲のチャンピオンの攻撃速度+10%</span>
+            <span id="Belt" class="text completed completed-top"> 周囲のチャンピオンの攻撃速度+10%</span>
+            <span id="Belt" class="text completed completed-bottom"> 周囲のチャンピオンの攻撃速度+10%</span>
         </div>
         <div>
-            <img src="Images/item/Spatula.png" id="Spatula" class="item" onclick="recipe_img_change(this.id)">
+            <img src="Images/item/Spatula.png" id="Spatula" class="item click" onclick="recipe_img_change(this.id)">
             <span class="text">+</span>
             <img src="Images/item/BF.png" id="recipe_img" class="item_small">
             <span class="text">=</span>
@@ -209,6 +238,73 @@
             <span id="Spatula" class="text completed completed-top">アサシンを付与する</span>
             <span id="Spatula" class="text completed completed-bottom">アサシンを付与する</span>
         </div>
+    </div>
+    <div id="drop">
+        <table width="100%">
+            <tr align="right">
+                <th></th>
+                <th id="tier1">Tier1</th>
+                <th id="tier2">Tier2</th>
+                <th id="tier3">Tier3</th>
+                <th id="tier4">Tier4</th>
+                <th id="tier5">Tier5</th>
+            </tr>
+            <tr align="right">
+                <td>Lv2</td>
+                <td id="tier1">100%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv3</td>
+                <td id="tier1">65%</td>
+                <td id="tier2">30%</td>
+                <td id="tier3">5%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv4</td>
+                <td id="tier1">50%</td>
+                <td id="tier2">35%</td>
+                <td id="tier3">15%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv5</td>
+                <td id="tier1">37%</td>
+                <td id="tier2">35%</td>
+                <td id="tier3">25%</td>
+                <td id="tier4">3%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv6</td>
+                <td id="tier1">24.5%</td>
+                <td id="tier2">35%</td>
+                <td id="tier3">30%</td>
+                <td id="tier4">10%</td>
+                <td id="tier5">0.5%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv7</td>
+                <td id="tier1">20%</td>
+                <td id="tier2">30%</td>
+                <td id="tier3">33%</td>
+                <td id="tier4">15%</td>
+                <td id="tier5">2%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv8</td>
+                <td id="tier1">15%</td>
+                <td id="tier2">25%</td>
+                <td id="tier3">35%</td>
+                <td id="tier4">20%</td>
+                <td id="tier5">5%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv9</td>
+                <td id="tier1">10%</td>
+                <td id="tier2">15%</td>
+                <td id="tier3">35%</td>
+                <td id="tier4">30%</td>
+                <td id="tier5">10%</td>
+            </tr>
+        </table>
     </div>
 </body>
 
@@ -227,38 +323,67 @@
     img.item {
         width: 42px;
         vertical-align: bottom;
+    }
+
+    .click {
         -webkit-app-region: no-drag;
     }
+
     img.item_small {
         width: 21px;
         vertical-align: bottom;
         padding-bottom: 10.5px;
     }
 
-    #recipe {
+    #recipe,
+    #drop {
         display: none;
     }
 
-    .text {
+    #recipe .text {
         font-size: 12px !important;
         color: white;
         vertical-align: middle;
         line-height: 42px;
         margin: 1.9px;
     }
-    .completed-top{
-        font-size: 12px !important;
-        line-height: 21px;
-        margin-top: 0;
-        margin-bottom: 0;
-        position: absolute;
+
+    .text.completed {
+        line-height: 21px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        position: absolute !important;
     }
-    .completed-bottom{
-        font-size: 12px !important;
-        line-height: 21px;
-        margin-top: 0;
-        margin-bottom: 0;
-        position: absolute;
-        padding-top: 21px;
+
+    .completed-top {
+        padding-top: 0px !important;
+    }
+
+    .completed-bottom {
+        padding-top: 21px !important;
+    }
+
+    #drop table {
+        color: white;
+        vertical-align: middle;
+        padding: 0 6 0 0;
+    }
+    #tier2{
+        color: lime;
+    }
+    #tier3{
+        color: aqua;
+    }
+    #tier4{
+        color: magenta;
+    }
+    #tier5{
+        color: orange;
+    }
+    #drag{
+        width: 14px;
+        height: 42px;
+        background: rgba(255, 238, 0, 0.33); 
+        display: -webkit-inline-box;
     }
 </style>
