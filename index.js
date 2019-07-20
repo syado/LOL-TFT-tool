@@ -11,11 +11,11 @@ app.on("ready", () => {
     titleBarStyle: "hidden",
     fullscreenable: false,
     fullscreen: false,
+    alwaysOnTop: true,
   })
   // win.loadURL(`file://${__dirname}/docs/index.html`);
-  win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
-  win.setAlwaysOnTop(true);
   win.setIgnoreMouseEvents(false);
+  win.loadURL(`http://github.syado.net/LOL-TFT-tool/index.html`);
   ipcMain.on('resize', (e, x, y) => {
     win.setSize(x, y)
   })
