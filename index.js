@@ -1,4 +1,4 @@
-const { app, BrowserWindow, shell, ipcMain } = require("electron")
+const { app, BrowserWindow, shell, ipcMain, session } = require("electron")
 var path = require('path')
 
 
@@ -20,6 +20,7 @@ app.on("ready", () => {
     win.setSize(x, y)
   })
   win.on('closed', () => {
+    session.defaultSession.clearCache(() => {});
     win = null; 
     app.quit();
   })
