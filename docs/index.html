@@ -42,86 +42,122 @@
             }
         });
     });
+    infinity_edge = "クリティカルダメージ+100%";
+    guardian_angel = "倒されたチャンピオンはHP1000で1度だけ復活";
+    zekes_herald = "装備者含む横5マスに攻撃速度+15%";
+    hextech_gunblade = "与えたダメージの33%を回復";
+    bloodthirster = "通常攻撃ダメージの50%を回復";
+    sword_of_the_divine = "毎秒5%の確率でクリティカル率が100%になる";
+    youmuus_ghostblade = "アサシンを付与";
+    spear_of_shojin = "通常攻撃で+15%のマナを回復";
+    thornmail = "軽減した通常攻撃ダメージの100%を反射";
+    red_buff = "通常攻撃で2.5%の燃焼ダメージを与える";
+    locket_of_the_iron_solari = "戦闘開始時、装備者含む横5マスに300のシールドを付与";
+    sword_breaker = "通常攻撃により一定確率で短時間通常攻撃をさせない";
+    phantom_dancer = "クリティカルダメージを回避";
+    knights_vow = "ナイトを付与";
+    frozen_heart = "周囲の敵の攻撃速度を25%低下させる";
+    warmogs_armor = "毎秒最大体力の6%を回復";
+    morellonomicon = "スキルダメージが毎秒相手の最大体力の3%の燃焼ダメージを与える";
+    zephyr = "戦闘開始時、敵1体を5秒間行動不能";
+    titanic_hydra = "通常攻撃が最大体力の10%にあたる範囲ダメージを与える";
+    frozen_mallet = "グレイシャルを付与";
+    redemption = "HPが25%まで減少したとき、周囲のチャンピオンを1000回復";
+    rabadons_deathcap = "スキルダメージ+50%";
+    ionic_spark = "スキルを発動した相手は200ダメージを受ける";
+    guinsoos_rageblade = "通常攻撃するたびに攻撃速度が4%上昇する(スタック無制限)";
+    yuumi = "ソーサラーを付与";
+    ludens_echo = "スキルダメージにより200ダメージを周囲のチャンピオンに与える";
+    dragons_claw = "スキルダメージを83%カット";
+    cursed_blade = "通常攻撃により低確率で相手チャンピオンのレベルを下げる";
+    runaans_hurricane = "通常攻撃の25%ダメージと効果を1体のチャンピオンに追加で与える";
+    hush = "通常攻撃により高確率で相手をサイレンス";
+    rapid_firecannon = "通常攻撃の射程が2倍になり、避けられなくなる";
+    blade_of_the_ruined_king = "ブレードマスターを付与";
+    statikk_shiv = "	通常攻撃3回ごとに100ダメージを3体のチャンピオンに与える";
+    force_of_nature = "チームサイズを1追加";
+    darkin = "デーモンを付与";
+    seraphs_embrace = "スキルを発動するたびマナを20回復";
     var recipe_list = {
         "BF": [
-            ["BF", "infinity_edge", "クリティカルダメージ+100%",],
-            ["Rod", "hextech_gunblade", "与えたダメージの25%を回復する"],
-            ["Bow", "sword_of_the_divine", "毎秒5%の確率でクリティカル率が100%"],
-            ["Tear", "spear_of_shojin", "通常攻撃で+15%のマナを回復する"],
-            ["Vest", "guardian_angel", "倒されたチャンピオンはHP500で1度だけ復活する"],
-            ["Cape", "bloodthirster", "通常攻撃ダメージの50%を回復する"],
-            ["Belt", "zekes_herald", "周囲のチャンピオンの攻撃速度+10%"],
-            ["Spatula", "youmuus_ghostblade", "アサシンを付与する"],
+            ["BF", "infinity_edge", infinity_edge],
+            ["Rod", "hextech_gunblade", hextech_gunblade],
+            ["Bow", "sword_of_the_divine", sword_of_the_divine],
+            ["Tear", "spear_of_shojin", spear_of_shojin],
+            ["Vest", "guardian_angel", guardian_angel],
+            ["Cape", "bloodthirster", bloodthirster],
+            ["Belt", "zekes_herald", zekes_herald],
+            ["Spatula", "youmuus_ghostblade", youmuus_ghostblade],
         ],
         "Rod": [
-            ["BF", "hextech_gunblade", "与えたダメージの25%を回復する"],
-            ["Rod", "rabadons_deathcap", "スキルダメージ+50%"],
-            ["Bow", "guinsoos_rageblade", "通常攻撃するたびに攻撃速度が3%上昇する(スタック無制限)"],
-            ["Tear", "ludens_echo", "スキルダメージにより200ダメージを周囲のチャンピオンに与える"],
-            ["Vest", "locket_of_the_iron_solari", "戦闘開始時、周囲のチャンピオンに200のシールドを付与する"],
-            ["Cape", "ionic_spark", "スキルを発動した相手は200ダメージを受ける"],
-            ["Belt", "morellonomicon", "スキルダメージが毎秒相手の最大体力の5%の燃焼ダメージを与える"],
-            ["Spatula", "yuumi", "ソーサラーを付与する"],
+            ["BF", "hextech_gunblade", hextech_gunblade],
+            ["Rod", "rabadons_deathcap", rabadons_deathcap],
+            ["Bow", "guinsoos_rageblade", guinsoos_rageblade],
+            ["Tear", "ludens_echo", ludens_echo],
+            ["Vest", "locket_of_the_iron_solari", locket_of_the_iron_solari],
+            ["Cape", "ionic_spark", ionic_spark],
+            ["Belt", "morellonomicon", morellonomicon],
+            ["Spatula", "yuumi", yuumi],
         ],
         "Bow": [
-            ["BF", "sword_of_the_divine", "毎秒5%の確率でクリティカル率が100%"],
-            ["Rod", "guinsoos_rageblade", "通常攻撃するたびに攻撃速度が3%上昇する(スタック無制限)"],
-            ["Bow", "rapid_firecannon", "通常攻撃の射程が2倍になり、避けられなくなる"],
-            ["Tear", "statikk_shiv", "通常攻撃3回ごとに100の範囲ダメージを与える"],
-            ["Vest", "phantom_dancer", "クリティカルダメージを回避する"],
-            ["Cape", "cursed_blade", "通常攻撃により低確率で相手チャンピオンのレベルを下げる"],
-            ["Belt", "titanic_hydra", "通常攻撃が最大体力の10%にあたる範囲ダメージを与える"],
-            ["Spatula", "blade_of_the_ruined_king", "ブレードマスターを付与する"],
+            ["BF", "sword_of_the_divine", sword_of_the_divine],
+            ["Rod", "guinsoos_rageblade", guinsoos_rageblade],
+            ["Bow", "rapid_firecannon", rapid_firecannon],
+            ["Tear", "statikk_shiv", statikk_shiv],
+            ["Vest", "phantom_dancer", phantom_dancer],
+            ["Cape", "cursed_blade", cursed_blade],
+            ["Belt", "titanic_hydra", titanic_hydra],
+            ["Spatula", "blade_of_the_ruined_king", blade_of_the_ruined_king],
         ],
         "Tear": [
-            ["BF", "spear_of_shojin", "通常攻撃で+15%のマナを回復する"],
-            ["Rod", "ludens_echo", "スキルダメージにより200ダメージを周囲のチャンピオンに与える"],
-            ["Bow", "statikk_shiv", "通常攻撃3回ごとに100の範囲ダメージを与える"],
-            ["Tear", "seraphs_embrace", "スキルを発動するたび最大マナの20%を回復する"],
-            ["Vest", "frozen_heart", "周囲の敵の攻撃速度を20%低下させる"],
-            ["Cape", "hush", "通常攻撃により高確率で相手をサイレンスにする"],
-            ["Belt", "redemption", "倒されたとき、周囲のチャンピオンを1000回復する"],
-            ["Spatula", "darkin", "デーモンを付与する"],
+            ["BF", "spear_of_shojin", spear_of_shojin],
+            ["Rod", "ludens_echo", ludens_echo],
+            ["Bow", "statikk_shiv", statikk_shiv],
+            ["Tear", "seraphs_embrace", seraphs_embrace],
+            ["Vest", "frozen_heart", frozen_heart],
+            ["Cape", "hush", hush],
+            ["Belt", "redemption", redemption],
+            ["Spatula", "darkin", darkin],
         ],
         "Vest": [
-            ["BF", "guardian_angel", "倒されたチャンピオンはHP500で1度だけ復活する"],
-            ["Rod", "locket_of_the_iron_solari", "戦闘開始時、周囲のチャンピオンに200のシールドを付与する"],
-            ["Bow", "phantom_dancer", "クリティカルダメージを回避する"],
-            ["Tear", "frozen_heart", "周囲の敵の攻撃速度を20%低下させる"],
-            ["Vest", "thornmail", "通常攻撃ダメージを35%反射する"],
-            ["Cape", "sword_breaker", "通常攻撃により一定確率で装備を解除する"],
-            ["Belt", "red_buff", "通常攻撃で2.5%の燃焼ダメージを与える"],
-            ["Spatula", "knights_vow", "ナイトを付与する"],
+            ["BF", "guardian_angel", guardian_angel],
+            ["Rod", "locket_of_the_iron_solari", locket_of_the_iron_solari],
+            ["Bow", "phantom_dancer", phantom_dancer],
+            ["Tear", "frozen_heart",　frozen_heart],
+            ["Vest", "thornmail", thornmail],
+            ["Cape", "sword_breaker", sword_breaker],
+            ["Belt", "red_buff", red_buff],
+            ["Spatula", "knights_vow", knights_vow],
         ],
         "Cape": [
-            ["BF", "bloodthirster", "通常攻撃ダメージの50%を回復する"],
-            ["Rod", "ionic_spark", "スキルを発動した相手は200ダメージを受ける"],
-            ["Bow", "cursed_blade", "通常攻撃により低確率で相手チャンピオンのレベルを下げる"],
-            ["Tear", "hush", "通常攻撃により高確率で相手をサイレンスにする"],
-            ["Vest", "sword_breaker", "通常攻撃により一定確率で装備を解除する"],
-            ["Cape", "dragons_claw", "スキルダメージを83%カットする"],
-            ["Belt", "zephyr", "戦闘開始時、敵1体を5秒間行動不能にする"],
-            ["Spatula", "runaans_hurricane", "通常攻撃の50%のダメージを追加で2体のチャンピオンに与える"],
+            ["BF", "bloodthirster", bloodthirster],
+            ["Rod", "ionic_spark", ionic_spark],
+            ["Bow", "cursed_blade", cursed_blade],
+            ["Tear", "hush", hush],
+            ["Vest", "sword_breaker", sword_breaker],
+            ["Cape", "dragons_claw", dragons_claw],
+            ["Belt", "zephyr", zephyr],
+            ["Spatula", "runaans_hurricane", runaans_hurricane],
         ],
         "Belt": [
-            ["BF", "zekes_herald", "周囲のチャンピオンの攻撃速度+10%"],
-            ["Rod", "morellonomicon", "スキルダメージが毎秒相手の最大体力の5%の燃焼ダメージを与える"],
-            ["Bow", "titanic_hydra", "通常攻撃が最大体力の10%にあたる範囲ダメージを与える"],
-            ["Tear", "redemption", "倒されたとき、周囲のチャンピオンを1000回復する"],
-            ["Vest", "red_buff", "通常攻撃で2.5%の燃焼ダメージを与える"],
-            ["Cape", "zephyr", "戦闘開始時、敵1体を5秒間行動不能にする"],
-            ["Belt", "warmogs_armor", "毎秒最大体力の3%を回復する"],
-            ["Spatula", "frozen_mallet", "グレイシャルを付与する"],
+            ["BF", "zekes_herald", zekes_herald],
+            ["Rod", "morellonomicon", morellonomicon],
+            ["Bow", "titanic_hydra", titanic_hydra],
+            ["Tear", "redemption", redemption],
+            ["Vest", "red_buff", red_buff],
+            ["Cape", "zephyr", zephyr],
+            ["Belt", "warmogs_armor", warmogs_armor],
+            ["Spatula", "frozen_mallet", frozen_mallet],
         ],
         "Spatula": [
-            ["BF", "youmuus_ghostblade", "アサシンを付与する"],
-            ["Rod", "yuumi", "ソーサラーを付与する"],
-            ["Bow", "blade_of_the_ruined_king", "ブレードマスターを付与する"],
-            ["Tear", "darkin", "デーモンを付与する"],
-            ["Vest", "knights_vow", "ナイトを付与する"],
-            ["Cape", "runaans_hurricane", "通常攻撃の50%のダメージを追加で2体のチャンピオンに与える"],
-            ["Belt", "frozen_mallet", "グレイシャルを付与する"],
-            ["Spatula", "force_of_nature", "チームサイズを1追加する"],
+            ["BF", "youmuus_ghostblade", youmuus_ghostblade],
+            ["Rod", "yuumi", yuumi],
+            ["Bow", "blade_of_the_ruined_king", blade_of_the_ruined_king],
+            ["Tear", "darkin", darkin],
+            ["Vest", "knights_vow", knights_vow],
+            ["Cape", "runaans_hurricane", runaans_hurricane],
+            ["Belt", "frozen_mallet", frozen_mallet],
+            ["Spatula", "force_of_nature",　force_of_nature],
         ],
     }
     var item_status = {
@@ -139,7 +175,15 @@
         for (let v of recipe_list[id]) {
             $("#" + v[0] + ".completed.item").attr("src", "Images/item/" + v[1] + ".png");
             $("#" + v[0] + ".completed-bottom.text").html(v[2]);
-            $("#" + v[0] + ".completed-top.text").html(item_status[v[0]] + item_status[id]);
+            if (id != "Spatula" && v[0] != "Spatula"){
+                $("#" + v[0] + ".completed-top.text").html(item_status[v[0]] + item_status[id]);
+            }else if (v[0] == "Spatula"){
+                $("#" + v[0] + ".completed-top.text").html(item_status[id] + item_status[id]);
+            }else if (id == "Spatula"){
+                $("#" + v[0] + ".completed-top.text").html(item_status[v[0]] + item_status[v[0]]);
+            }else{
+                $("#" + v[0] + ".completed-top.text").html("");
+            }
             console.log(v[0], v[1], v[2]);
         }
     }
