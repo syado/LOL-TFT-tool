@@ -11,7 +11,7 @@
         $("#item_recipe").on("click", function () {
             var _click = $(this).data("click");
             if (_click == "close") {
-                ipcRenderer.send('resize', 500, 378);
+                ipcRenderer.send('resize', 520, 378);
                 $(this).data("click", "open");
                 $("#drop").css({ 'display': 'none' });
                 $("#recipe").css({ 'display': 'block' });
@@ -52,7 +52,7 @@
     spear_of_shojin = "通常攻撃で+15%のマナを回復";
     thornmail = "軽減した通常攻撃ダメージの100%を反射";
     red_buff = "通常攻撃で2.5%の燃焼ダメージ";
-    locket_of_the_iron_solari = "戦闘開始時、装備者中心の横5マスに200のシールドを付与";
+    locket_of_the_iron_solari = "戦闘開始時、装備者中心の横5マスに4秒間持続する250のシールドを付与";
     sword_breaker = "通常攻撃により確率25%で3秒間通常攻撃をさせない";
     phantom_dancer = "クリティカルダメージを回避";
     knights_vow = "ナイトを付与";
@@ -64,17 +64,17 @@
     frozen_mallet = "グレイシャルを付与";
     redemption = "HPが25%まで減少したとき、周囲のチャンピオンを1000回復";
     rabadons_deathcap = "スキルダメージ+50%";
-    ionic_spark = "スキルを発動した相手は200ダメージ";
+    ionic_spark = "スキルを発動した相手は150ダメージ";
     guinsoos_rageblade = "通常攻撃するたびに攻撃速度が4%上昇する(スタック無制限)";
     yuumi = "ソーサラーを付与";
     ludens_echo = "スキルダメージにより200ダメージを周囲のチャンピオンに与える";
     dragons_claw = "スキルダメージを83%カット";
     cursed_blade = "通常攻撃により確率20%で相手チャンピオンのレベルを下げる";
     runaans_hurricane = "通常攻撃の25%ダメージと効果を1体のチャンピオンに追加攻撃";
-    hush = "通常攻撃により確率50％で相手がスキル発動無効";
+    hush = "通常攻撃により確率30％で相手が3秒間スキル発動無効";
     rapid_firecannon = "通常攻撃の射程が2倍になり、避けられなくなる";
     blade_of_the_ruined_king = "ブレードマスターを付与";
-    statikk_shiv = "通常攻撃3回ごとに100ダメージを3体のチャンピオンに与える";
+    statikk_shiv = "通常攻撃3回ごとに90ダメージを3体のチャンピオンに与える";
     force_of_nature = "チームサイズを1追加";
     darkin = "デーモンを付与";
     seraphs_embrace = "スキルを発動するたびマナを20回復";
