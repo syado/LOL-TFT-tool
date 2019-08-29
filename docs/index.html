@@ -28,7 +28,7 @@
         $("#champion_drop").on("click", function () {
             var _click = $(this).data("click");
             if (_click == "close") {
-                ipcRenderer.send('resize', 340, 242);
+                ipcRenderer.send('resize', 340, 264);
                 $(this).data("click", "open");
                 $("#drop").css({ 'display': 'block' });
                 $("#recipe").css({ 'display': 'none' });
@@ -42,42 +42,42 @@
             }
         });
     });
-    infinity_edge = "クリティカルダメージ+150%";
-    guardian_angel = "倒されたチャンピオンは2秒後にHP1000で1度だけ復活";
-    zekes_herald = "装備者中心の横5マスに攻撃速度+15%";
-    hextech_gunblade = "与えたダメージの33%を回復";
-    bloodthirster = "通常攻撃ダメージの50%を回復";
-    sword_of_the_divine = "毎秒5%の確率でクリティカル率が100%";
-    youmuus_ghostblade = "アサシンを付与";
-    spear_of_shojin = "通常攻撃で+15%のマナを回復";
-    thornmail = "軽減した通常攻撃ダメージの100%を反射";
-    red_buff = "通常攻撃で2.5%の燃焼ダメージ";
-    locket_of_the_iron_solari = "戦闘開始時、装備者中心の横5マスに4秒間持続する250のシールドを付与";
-    sword_breaker = "通常攻撃により確率25%で3秒間通常攻撃をさせない";
-    phantom_dancer = "クリティカルダメージを回避";
-    knights_vow = "ナイトを付与";
-    frozen_heart = "周囲の敵の攻撃速度を25%低下";
-    warmogs_armor = "毎秒減少体力の6%を回復";
-    morellonomicon = "スキルダメージで毎秒相手の最大体力の5%の燃焼ダメージ";
-    zephyr = "戦闘開始時、敵1体を5秒間行動不能";
-    titanic_hydra = "通常攻撃が最大体力の10%にあたる範囲ダメージ";
-    frozen_mallet = "グレイシャルを付与";
-    redemption = "HPが25%まで減少したとき、周囲のチャンピオンを1000回復";
-    rabadons_deathcap = "スキルダメージ+50%";
-    ionic_spark = "スキルを発動した相手は150ダメージ";
-    guinsoos_rageblade = "通常攻撃するたびに攻撃速度が4%上昇する(スタック無制限)";
-    yuumi = "ソーサラーを付与";
-    ludens_echo = "スキルダメージにより200ダメージを周囲のチャンピオンに与える";
-    dragons_claw = "スキルダメージを83%カット";
-    cursed_blade = "通常攻撃により確率20%で相手チャンピオンのレベルを下げる";
-    runaans_hurricane = "通常攻撃の25%ダメージと効果を1体のチャンピオンに追加攻撃";
-    hush = "通常攻撃により確率30％で相手が3秒間スキル発動無効";
-    rapid_firecannon = "通常攻撃の射程が2倍になり、避けられなくなる";
-    blade_of_the_ruined_king = "ブレードマスターを付与";
-    statikk_shiv = "通常攻撃3回ごとに90ダメージを3体のチャンピオンに与える";
-    force_of_nature = "チームサイズを1追加";
-    darkin = "デーモンを付与";
-    seraphs_embrace = "スキルを発動するたびマナを20回復";
+    infinity_edge = "クリティカルダメージ+200%"; //インフィニティ・エッジ
+    guardian_angel = "装備者がHP500で復活"; //ガーディアンエンジェル
+    zekes_herald = "装備者中心の横5マスに攻撃速度+15%"; //ジークヘラルド
+    hextech_gunblade = "与えたダメージの25%を回復"; //へクステック・ガンブレード
+    bloodthirster = "通常攻撃ダメージの33%を回復"; //ブラッドサースター
+    sword_of_the_divine = "毎秒7%の確率でクリティカル率が100%"; //天帝の剣
+    youmuus_ghostblade = "アサシンを付与"; //妖夢の霊剣
+    spear_of_shojin = "スキル発動後、通常攻撃ごとに+15%のマナを回復"; //ショウジンの矛
+    thornmail = "軽減した通常攻撃ダメージの100%を反射"; //ソーンメイル
+    red_buff = "10秒間かけて対象の最大体力の20%を確定ダメージ＋回復無効化"; //レッドバフ
+    locket_of_the_iron_solari = "戦闘開始時、装備者中心の横5マスに6秒間持続する250のシールドを付与"; //ソラリのロケット
+    sword_breaker = "通常攻撃により確率25%で4秒間通常攻撃をさせない"; //ソードブレーカー
+    phantom_dancer = "クリティカルダメージを回避"; //ファントムダンサー
+    knights_vow = "ナイトを付与"; //騎士の誓い
+    frozen_heart = "周囲の敵の攻撃速度を30%低下"; //フローズンハート
+    warmogs_armor = "毎秒減少体力の6%を回復"; //ワーモグアーマー
+    morellonomicon = "スキルダメージで10秒間かけて対象の最大体力の20%を確定ダメージ"; //モレロノミコン
+    zephyr = "戦闘開始時、敵1体を5秒間行動不能"; //ゼファー
+    titanic_hydra = "通常攻撃に装備者の最大体力の10%にあたる範囲ダメージを追加"; //タイタンハイドラ
+    frozen_mallet = "グレイシャルを付与"; //フローズンマレット
+    redemption = "HPが25%まで減少した2.5秒後、周囲のチャンピオンを1200回復"; //リデンプション
+    rabadons_deathcap = "スキルダメージ+50%"; //ラバドン・デスキャップ
+    ionic_spark = "スキルを発動した相手は125の確定ダメージ"; //アイオニックスパーク
+    guinsoos_rageblade = "通常攻撃するたびに攻撃速度が5%上昇する(スタック無制限)"; //グインソー・レイジブレード
+    yuumi = "ソーサラーを付与"; //ユーミ
+    ludens_echo = "スキル命中時、周囲のチャンピオンに180の追加魔法ダメージ"; //ルーデンエコー
+    dragons_claw = "スキルダメージを83%カット"; //ドラゴンの爪
+    cursed_blade = "通常攻撃により確率20%で相手チャンピオンのレベルを1下げる"; //呪われた剣
+    runaans_hurricane = "通常攻撃の75%ダメージと通常攻撃効果を1体のチャンピオンに追加攻撃"; //ルナーン・ハリケーン
+    hush = "通常攻撃により確率33％で相手が4秒間スキル発動無効"; //静寂
+    rapid_firecannon = "通常攻撃の射程が2倍になり、避けられなくなる"; //ラピッドファイアキャノン
+    blade_of_the_ruined_king = "ブレードマスターを付与"; //ルインドキングブレード
+    statikk_shiv = "通常攻撃3回ごとに3体のチャンピオンに100ダメージ"; //スタティック・シヴ
+    force_of_nature = "チームサイズを1追加"; //自然の力
+    darkin = "デーモンを付与"; //ダーキン
+    seraphs_embrace = "スキルを発動するたびマナを20回復"; //セラフ・エンプレイス
     var recipe_list = {
         "BF": [
             ["BF", "infinity_edge", infinity_edge],
@@ -286,67 +286,34 @@
     <div id="drop">
         <table width="100%">
             <tr align="right">
-                <th></th>
-                <th id="tier1">Tier1</th>
-                <th id="tier2">Tier2</th>
-                <th id="tier3">Tier3</th>
-                <th id="tier4">Tier4</th>
-                <th id="tier5">Tier5</th>
+                <th>Tier</th>   <th id="tier1">Tier1</th>   <th id="tier2">Tier2</th>   <th id="tier3">Tier3</th>   <th id="tier4">Tier4</th>   <th id="tier5">Tier5</th>
             </tr>
             <tr align="right">
-                <td>Lv2</td>
-                <td id="tier1">100%</td>
+                <td></td>       <td id="tier1">39</td>      <td id="tier2">26</td>      <td id="tier3">21</td>      <td id="tier4">13</td>      <td id="tier5">10</td>
             </tr>
             <tr align="right">
-                <td>Lv3</td>
-                <td id="tier1">65%</td>
-                <td id="tier2">30%</td>
-                <td id="tier3">5%</td>
+                <td>Lv2</td>    <td id="tier1">100%</td>
             </tr>
             <tr align="right">
-                <td>Lv4</td>
-                <td id="tier1">50%</td>
-                <td id="tier2">35%</td>
-                <td id="tier3">15%</td>
+                <td>Lv3</td>    <td id="tier1">65%</td>     <td id="tier2">30%</td>     <td id="tier3">5%</td>
             </tr>
             <tr align="right">
-                <td>Lv5</td>
-                <td id="tier1">37%</td>
-                <td id="tier2">35%</td>
-                <td id="tier3">25%</td>
-                <td id="tier4">3%</td>
+                <td>Lv4</td>    <td id="tier1">50%</td>     <td id="tier2">35%</td>     <td id="tier3">15%</td>
             </tr>
             <tr align="right">
-                <td>Lv6</td>
-                <td id="tier1">24.5%</td>
-                <td id="tier2">35%</td>
-                <td id="tier3">30%</td>
-                <td id="tier4">10%</td>
-                <td id="tier5">0.5%</td>
+                <td>Lv5</td>    <td id="tier1">37%</td>     <td id="tier2">35%</td>     <td id="tier3">25%</td>     <td id="tier4">3%</td>
             </tr>
             <tr align="right">
-                <td>Lv7</td>
-                <td id="tier1">20%</td>
-                <td id="tier2">30%</td>
-                <td id="tier3">33%</td>
-                <td id="tier4">15%</td>
-                <td id="tier5">2%</td>
+                <td>Lv6</td>    <td id="tier1">24.5%</td>   <td id="tier2">35%</td>     <td id="tier3">30%</td>     <td id="tier4">10%</td>     <td id="tier5">0.5%</td>
             </tr>
             <tr align="right">
-                <td>Lv8</td>
-                <td id="tier1">15%</td>
-                <td id="tier2">25%</td>
-                <td id="tier3">35%</td>
-                <td id="tier4">20%</td>
-                <td id="tier5">5%</td>
+                <td>Lv7</td>    <td id="tier1">20%</td>     <td id="tier2">30%</td>     <td id="tier3">33%</td>     <td id="tier4">15%</td>     <td id="tier5">2%</td>
             </tr>
             <tr align="right">
-                <td>Lv9</td>
-                <td id="tier1">10%</td>
-                <td id="tier2">15%</td>
-                <td id="tier3">35%</td>
-                <td id="tier4">30%</td>
-                <td id="tier5">10%</td>
+                <td>Lv8</td>    <td id="tier1">15%</td>     <td id="tier2">25%</td>     <td id="tier3">35%</td>     <td id="tier4">20%</td>     <td id="tier5">5%</td>
+            </tr>
+            <tr align="right">
+                <td>Lv9</td>    <td id="tier1">10%</td>     <td id="tier2">15%</td>     <td id="tier3">35%</td>     <td id="tier4">30%</td>     <td id="tier5">10%</td>
             </tr>
         </table>
     </div>
